@@ -19,7 +19,8 @@ function addTodo (event) {
     // create-li --append
     const newTodo = document.createElement('li');
     newTodo.classList.add('todo-item');
-    newTodo.innerText = 'test';
+    // input random value 
+    newTodo.innerText = todoInput.value;
     todoDiv.appendChild(newTodo);
 
     // Check Mark Button
@@ -36,6 +37,8 @@ function addTodo (event) {
 
     // Append todoDiv to UL list
     todoList.appendChild(todoDiv);
+    // clear input value after entering text
+    todoInput.value = "";
 
 
 
