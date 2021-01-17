@@ -34,7 +34,7 @@ function addTodo (event) {
     const trashButton = document.createElement('button');
     trashButton.innerHTML = '<i class="fas fa-trash"></i>';
     trashButton.classList.add('trash-btn');
-    todoDiv.appendChild(trashButton);
+    todoDiv.appendChild(trashButton); 
 
     // Append todoDiv to UL list
     todoList.appendChild(todoDiv);
@@ -48,13 +48,18 @@ function deleteCheck (e) {
    if (item.classList[0] === "trash-btn") {
        // delete parentElement of item for complete removal
        const todo = item.parentElement;
-       todo.remove();
+       // add class todo Animation 
+       todo.classList.add("fall");
+       todo.addEventListener("transitioned", function(){
+        todo.remove();
+       });
+       
    }
 
    // check mark 
    if (item.classList[0] === "complete-btn") {
        const todo = item.parentElement;
+       // todo toggle undo delete 
        todo.classList.toggle("completed");
-       console.log(todo.item);
    }
 }
